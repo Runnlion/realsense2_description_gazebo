@@ -10,7 +10,7 @@ aluminum peripherial evaluation case.
 
 <robot name="sensor_d435" xmlns:xacro="http://ros.org/wiki/xacro">
   <!--File includes-->
-  <xacro:include filename="$(find realsense2_description)/urdf/_d435.gazebo.xacro"/>
+  <xacro:include filename="$(find realsense2_description_gazebo)/urdf/_d435.gazebo.xacro"/>
 
   <xacro:macro name="sensor_d435" params="name:=camera topics_ns:=camera parent *origin publish_pointcloud:=true">
     <xacro:property name="M_PI" value="3.1415926535897931" />
@@ -47,7 +47,6 @@ aluminum peripherial evaluation case.
       <child link="${name}_bottom_screw_frame" />
     </joint>
     <link name="${name}_bottom_screw_frame"/>
-
     <joint name="${name}_link_joint" type="fixed">
       <origin xyz="0 ${d435_cam_depth_py} ${d435_cam_depth_pz}" rpy="0 0 0"/>
       <parent link="${name}_bottom_screw_frame"/>
@@ -60,7 +59,7 @@ aluminum peripherial evaluation case.
         <geometry>
           <!-- <box size="${d435_cam_width} ${d435_cam_height} ${d435_cam_depth}"/> -->
           <mesh filename="package://realsense2_description/meshes/d435.dae" />
-          <!--<mesh filename="package://realsense2_description/meshes/d435/d435.dae" />-->
+          <!--<mesh filename="package://realsense2_description_gazebo/meshes/d435/d435.dae" />-->
         </geometry>
         <material name="${name}_aluminum"/>
       </visual>
